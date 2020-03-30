@@ -515,10 +515,28 @@ class _TableCalendarState extends State<TableCalendar> with SingleTickerProvider
       x += daysInWeek;
     }
 
-    return Table(
-      // Makes this Table fill its parent horizontally
-      defaultColumnWidth: FractionColumnWidth(1.0 / daysInWeek),
-      children: children,
+    // return Table(
+    //   // Makes this Table fill its parent horizontally
+    //   defaultColumnWidth: FractionColumnWidth(1.0 / daysInWeek),
+    //   children: children,
+    // );
+
+    return  Container(
+      child: Column(
+        children:[
+          Table(
+            // Makes this Table fill its parent horizontally
+            defaultColumnWidth: FractionColumnWidth(1.0 / daysInWeek),
+            children: children,
+          ),
+          Container(
+            width: 20,
+            child: Divider(
+              color: Colors.white,
+            )
+          ),
+        ]
+      ),
     );
   }
 
