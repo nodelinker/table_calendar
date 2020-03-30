@@ -355,7 +355,12 @@ class CalendarController {
     if (difference + daysAfter == 35){
       final lastToDisplay = last.add(Duration(days: daysAfter + 7));
       return _daysInRange(firstToDisplay, lastToDisplay).toList();
-    }else{
+    }
+    else if(difference + daysAfter == 28){
+      final lastToDisplay = last.add(Duration(days: daysAfter + 14));
+      return _daysInRange(firstToDisplay, lastToDisplay).toList();
+    }
+    else{
       final lastToDisplay = last.add(Duration(days: daysAfter));
       return _daysInRange(firstToDisplay, lastToDisplay).toList();
     }
