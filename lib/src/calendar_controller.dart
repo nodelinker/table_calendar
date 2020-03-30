@@ -349,8 +349,17 @@ class CalendarController {
     final last = _lastDayOfMonth(month);
     final daysAfter = _getDaysAfter(last);
 
-    final lastToDisplay = last.add(Duration(days: daysAfter));
-    return _daysInRange(firstToDisplay, lastToDisplay).toList();
+
+    final difference = last.difference(firstToDisplay).inDays;
+
+    if (difference + daysAfter == 35){
+      final lastToDisplay = last.add(Duration(days: daysAfter + 7));
+      return _daysInRange(firstToDisplay, lastToDisplay).toList();
+    }else{
+      final lastToDisplay = last.add(Duration(days: daysAfter));
+      return _daysInRange(firstToDisplay, lastToDisplay).toList();
+    }
+
   }
 
   int _getDaysBefore(DateTime firstDay) {
